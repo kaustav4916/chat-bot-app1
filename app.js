@@ -5,6 +5,10 @@ const rl =Readline.createInterface({
 	output:process.stdout,
 	terminal:false
 });
+var regex1=new RegExp('foo','g');
+var asking=new RegExp('foo','g');
+var ticket=new RegExp('foo','g');
+var moviesname=new RegExp('foo','g');
 const matcher =require('./matcher');
 const weather=require('./wheather');
 const movies=require('./movies');
@@ -14,15 +18,18 @@ rl.on('line', reply => {
 	matcher(reply,data =>{
 		switch(data.intent){
 			case 'Hello':
-			   console.log(`${data.entities.greeting} to you too!How are You doing today`);
+			   var hello=`${data.entities.greeting} to you too!How are You doing today`;
+			   console.log(hello);
 			   rl.prompt();
 			   break;
 			case 'greeting':
-			   console.log("Great To Know that!What type of movies");
+			   var regex1="Great To Know that!What type of movies";
+			   console.log(regex1);
 			   rl.prompt();
 			   break;			
 			case 'CurrentWeather':
-			   console.log(`Checking wheather for ${data.entities.city}...`);
+			var apicheck=`Checking wheather for ${data.entities.city}...`;
+			   console.log(apicheck);
 			    //get wheather data API
 			    weather(data.entities.city,'current')
 				    .then(response => {
@@ -35,21 +42,27 @@ rl.on('line', reply => {
 				   });			    
 			    break;
 			case 'asking':
-			    console.log(`Checking for movies.....`);
-			    console.log(movies.userId='Inception');
+			    var asking="Checking for movies.....";
+			    console.log(asking);
+			    var moviesname="Inception";
+			    console.log(moviesname);
 			    rl.prompt();
 			    break;
 			case 'ticketprice':
-			    console.log(`Checking for ticket price.....`);
-			    console.log('$10');
+			    var ticket="Checking for ticket price.....";
+			    console.log(ticket);
+			    var ticketprice="$10";
+			    console.log(ticketprice);
 			    rl.prompt();
 			    break;
 			case 'Exit':
-			    console.log("Have a nice Day");
+			    var exit="Have a nice Day";
+			    console.log(exit);
 			    process.exit(0);
 			    break;
 			default:{
-			   	console.log("I don't know what you mean :( ");
+				var defaultcase=`I don't know what you mean :( `;
+			   	console.log(defaultcase);
 			   	rl.prompt();
 			}
 		}

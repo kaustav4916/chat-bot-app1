@@ -1,5 +1,6 @@
 'use strict';
 const patternDict = [{
+
 	pattern:'\\b(?<greeting>Hi|Hello|Hey|hi|Hey there|howdy|Namaste| Hola|hii|hiii)\\b',
 	intent:'Hello'
 },{
@@ -7,7 +8,7 @@ const patternDict = [{
 	intent: 'greeting'
 
 },{
-	pattern:'\\b(?<greeting>movie?)',
+	pattern:'\\b(?!m|<greeting>movie.+)\\b',
 	intent: 'asking'
 
 },{
@@ -15,7 +16,7 @@ const patternDict = [{
 	intent: 'CurrentWeather'
 
 },{
-	pattern:'\\b(?<greeting>movie.+ticket?|price?)',
+	pattern:'\\b(?!m|.<greeting>price?)',
 	intent: 'ticketprice'
 
 },{
